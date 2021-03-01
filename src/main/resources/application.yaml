@@ -1,0 +1,32 @@
+server:
+  port: 8004
+spring:
+  application:
+    name: diary-service
+  datasource:
+    url: jdbc:mariadb://localhost:3306/micro_diary?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: root
+    password: 
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      data-source-properties:
+        useUnicode: true
+        characterEncoding: UTF-8
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      preferIpAddress: true
+info:
+  application:
+    name: microservice diary
+    description: this app diary
+    version: 1.0.0
+      
